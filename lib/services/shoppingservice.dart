@@ -8,7 +8,7 @@ class ShoppingApiService{
       String name,String quantity,String price,String date,
       ) async{
     var client=http.Client();
-    var apiurl=Uri.parse("http://192.168.251.163:3001/api/shoppingapp/add/");
+    var apiurl=Uri.parse("http://192.168.251.163:3001/api/shoppingapp/add");
     var response=await client.post(apiurl,
         headers: <String,String>{
           "Content-Type":"application/json; charset=UTF-8"
@@ -30,9 +30,9 @@ class ShoppingApiService{
     }
 
   }
-  Future<List<Posts>>getPosts()async{
+  Future<List<Posts>> getPosts()async{
     var client=http.Client();
-    var apiurl=Uri.parse("http://192.168.251.163:3001/api/shoppingapp/view/");
+    var apiurl=Uri.parse("http://192.168.251.163:3001/api/shoppingapp/view");
     var response=await client.get(apiurl);
     if(response.statusCode==200)
     {

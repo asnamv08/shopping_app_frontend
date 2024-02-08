@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping/models/shoppingmodel.dart';
+import 'package:shopping/services/shoppingservice.dart';
 
 class itemview extends StatefulWidget {
   const itemview({super.key});
@@ -10,6 +11,11 @@ class itemview extends StatefulWidget {
 
 class _itemviewState extends State<itemview> {
   Future<List<Posts>>?data;
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    data=ShoppingApiService().getPosts();
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -32,12 +38,6 @@ class _itemviewState extends State<itemview> {
                                 subtitle: Text("Item Quantity:"+snapshot.data![index].itemquantity.toString()+"\n"+"Item Price:"+snapshot.data![index].itemprice.toString()+"\n"+"Expire date:"+snapshot.data![index].itemexpiredate.toString()),
                                 leading:CircleAvatar(child: Text(snapshot.data![index].itemname.toString()[0]),)
                             )
-
-                            /* Text(snapshot.data![index].vistorName.toString()),
-                    Text(snapshot.data![index].vistorPlace.toString()),
-                    Text(snapshot.data![index].vistorAadhar.toString()),
-                    Text(snapshot.data![index].vistorPlace.toString()),
-                    Text(snapshot.data![index].vistorPhone.toString()),*/
                           ],
                         ),
                       );
