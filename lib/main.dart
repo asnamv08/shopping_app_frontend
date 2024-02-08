@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping/pages/menu.dart';
 
 void main()
 {
@@ -10,7 +11,7 @@ class homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(),
+      home: menu(),
     );
   }
 }
